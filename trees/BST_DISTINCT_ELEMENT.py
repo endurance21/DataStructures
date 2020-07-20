@@ -58,6 +58,27 @@ class BST :
             self._print(node.right)
 
 
+    def search(self, value):
+        if self.root!=None:
+            if self._search(self.root,value)!=1 :
+                 print("we are really very sorry , we could find it ! ")
+
+        else :
+            print("oops the tree is empty")
+
+    def _search(self, currNode, value):
+        if currNode.data == value:
+            print("yeaahhh winner winner chicken dinner ")
+            return 1
+        elif  value <  currNode.data  and currNode.left!=None:
+            return self._search(currNode.left,value)
+        elif value >  currNode.data  and currNode.right!=None:
+            return self._search(currNode.right,value)
+    
+       
+        return 0
+
+
 
 
 if __name__ == '__main__' :
@@ -68,5 +89,7 @@ if __name__ == '__main__' :
     bstree.insert(30)
 
     bstree.print()
+
+    bstree.search(0)
 
    
